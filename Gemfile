@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 gem 'rspec-rails'
 gem 'faker'
 gem 'factory_girl_rails'
+gem 'seed_dump'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
