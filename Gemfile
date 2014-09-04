@@ -30,6 +30,9 @@ gem 'rspec-rails'
 gem 'faker'
 gem 'factory_girl_rails'
 gem 'seed_dump'
+gem 'omniauth-oauth2'
+gem 'omniauth-dbc', :git => 'https://github.com/Devbootcamp/omniauth-dbc.git'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
