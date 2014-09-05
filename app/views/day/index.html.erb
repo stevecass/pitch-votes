@@ -1,0 +1,10 @@
+<table>
+<% @days.each do |day| %>
+  <tr>
+  	<td><%= day.location %></td>
+  	<td><%= day.cohort_name %></td>
+  	<td><%= day.created_at.to_formatted_s(:nls) %></td>
+  </tr>
+<% end %>
+</table>
+

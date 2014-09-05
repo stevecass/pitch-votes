@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'day/index'
+
+  get 'day/show'
+
   get '/auth/:provider/callback' => 'sessions#create', as: 'login'
   get '/signout' => 'sessions#destroy', as: 'signout'
-  root 'home#index'
+  root 'day#index'
 
   
 
