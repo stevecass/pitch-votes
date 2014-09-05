@@ -8,6 +8,22 @@
 </head>
 <body>
 
+<nav>
+	<div id="user_login_status">
+	<% if current_user %>
+	  Logged in as <%= current_user.name %> <%= link_to 'Sign out', signout_path %>
+	<% else %>
+	  <%= link_to 'Sign in', '/auth/dbc' %>
+	<% end %>
+    </div>
+</nav>
+
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <%= content_tag :div, msg, :class => "flash_#{name}" %>
+  <% end %>
+<% end %>
+
 <%= yield %>
 
 </body>
