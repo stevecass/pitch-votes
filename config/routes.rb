@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :days, only: [:index, :show]
+  resources :days do
+    resources :voting_rounds
+  end
+
+  resources :ballots, only: [:create, :show]
 
   get '/auth/:provider/callback' => 'sessions#create', as: 'login'
   get '/signout' => 'sessions#destroy', as: 'signout'

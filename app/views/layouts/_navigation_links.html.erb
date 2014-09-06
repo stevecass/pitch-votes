@@ -1,6 +1,11 @@
 <%# add navigation links to this file %>
 <% if current_user %>
-<li><%= link_to 'Vote', '/' %></li>
+    <li><%= link_to 'Create a day', '/' %></li>
+
+  <% if @day %>
+    <li><%= link_to 'Create a voting round', '/' %></li>
+    <li><%= link_to 'Cast a vote', '/' %></li>
+  <% end %>
 <li><%= link_to 'Sign out', signout_path %></li>
 <% else %>
   <li><%= link_to 'Sign in', '/auth/dbc' %></li>
