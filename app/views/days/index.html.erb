@@ -4,6 +4,7 @@
   	<td><%= day.location %></td>
   	<td><%= day.cohort_name %></td>
   	<td><%= day.created_at.to_formatted_s(:nls) %></td>
+  	<td><%= link_to 'Details', day_path(day) %>
   </tr>
 <% end %>
 </table>

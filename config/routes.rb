@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'day/index'
-
-  get 'day/show'
+  resources :days, only: [:index, :show]
 
   get '/auth/:provider/callback' => 'sessions#create', as: 'login'
   get '/signout' => 'sessions#destroy', as: 'signout'
-  root 'day#index'
+  root 'days#index'
 
   
 
