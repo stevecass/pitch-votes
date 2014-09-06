@@ -2,16 +2,16 @@
 
 <table id="pitches">
 	<tr>
-		<th>Proposer</th>
-		<th>Pitch name</th>
+		<th class="proposer"  >Proposer</th>
+		<th class="pitch_name" >Pitch name</th>
 		<th>Pitch Description</th>
 	</tr>
 
     <% @day.pitches.each do |pitch| %>
     	<tr>
-    	  <td><%= pitch.proposer %></td>
-    	  <td><%= pitch.name %></td>
-    	  <td><%= pitch.description %></td>
+    	  <td class="proposer"><%= pitch.proposer %></td>
+    	  <td class="pitch_name"><%= pitch.name %></td>
+    	  <td class="pitch_description"><%= pitch.description %></td>
     	</tr>
     <% end %>
 </table>

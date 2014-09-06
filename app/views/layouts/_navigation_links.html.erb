@@ -1,0 +1,7 @@
+<%# add navigation links to this file %>
+
+	<% if current_user %>
+	  <span class="current_user_name">Logged in as <%= current_user.name %></span> <%= link_to 'Sign out', signout_path %>
+	<% else %>
+	  <%= link_to 'Sign in', '/auth/dbc' %>
+	<% end %>
