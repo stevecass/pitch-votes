@@ -33,6 +33,11 @@ gem 'seed_dump'
 gem 'omniauth-oauth2'
 gem 'omniauth-dbc', :git => 'https://github.com/Devbootcamp/omniauth-dbc.git'
 
+gem 'foundation-rails'
+group :development do
+  gem 'rails_layout'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

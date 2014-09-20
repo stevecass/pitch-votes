@@ -1,0 +1,16 @@
+<table>
+  <tr>
+  	<th class="location">Location</th>
+  	<th class="cohort_name">Cohort name</th>
+  	<th class="details_link">Details</th>
+  </tr>
+
+<% @days.each do |day| %>
+  <tr>
+  	<td class="location"><%= day.location %></td>
+  	<td class="cohort_name"><%= day.cohort_name %></td>
+  	<td class="details_link"><%= link_to 'Details', day_path(day) %></td>
+  </tr>
+<% end %>
+</table>
+
