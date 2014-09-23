@@ -15,4 +15,22 @@ class VotingRoundsController < ApplicationController
       #show the results for this round
     end
   end
+
+  def new
+    @day = CohortPitchDay.find(params[:cohort_pitch_day_id])
+    @voting_round = VotingRound.new
+  end
+
+  def create
+    day_id = params[:cohort_pitch_day_id]
+    pitch_ids = []
+    params[:pitches].each do |k,v|
+      pitch_ids.push k[1..-1]
+    end
+    vr = VotingRound.create_with_candidates(day_id, pitch_ids)
+    if vr.save
+      
+    end
+
+  end
 end

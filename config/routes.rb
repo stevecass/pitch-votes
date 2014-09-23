@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resource :ballot_paper, path: '/vote', only: [:create, :new]
   resources :cohort_pitch_days, path: '/days', controller: :days do
     resources :pitches, only: [:create]
-    resources :voting_rounds, only: [:index, :create, :show] do
+    resources :voting_rounds, only: [:new, :index, :create, :show] do
     end
   end
 
