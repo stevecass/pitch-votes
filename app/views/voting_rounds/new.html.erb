@@ -1,0 +1,20 @@
+<h1>Create a new voting round for <%= @day.cohort_name %></h1>
+
+<%= form_for [@day, @voting_round] do |f| %>
+
+<table>
+	<tr>
+		<th>Proposer</th>
+		<th>Name</th>
+		<th>Include in round?</th>
+	</tr>
+  <% @day.pitches.each do |p| %>
+    <tr>
+    	<td><%= p.proposer %></td>
+    	<td><%= p.name %></td>
+    	<td><%= check_box_tag "pitches[p#{p.id}]"  %> </td>
+    </tr>
+  <% end %>
+ </table>
+<%= f.submit %>
+<% end %>
