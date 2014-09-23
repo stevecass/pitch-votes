@@ -1,6 +1,6 @@
 <%# add navigation links to this file %>
 <% if current_user %>
-    <li><%= link_to 'Create a day', '/' %></li>
+    <li><%= link_to 'Create a day', new_day_path %></li>
 
   <% if @day %>
     <li><%= link_to 'Create a voting round', '/' %></li>

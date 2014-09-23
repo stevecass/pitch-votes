@@ -6,4 +6,8 @@ class DaysController < ApplicationController
   def show
     @day = CohortPitchDay.find_by_id(params[:id])
   end
+
+  def new
+    @day = CohortPitchDay.new
+  end
 end
