@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140923153251) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cohort_pitch_days", force: true do |t|
+  create_table "pitch_days", force: true do |t|
     t.string   "cohort_name"
     t.string   "location"
     t.date     "pitch_date"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140923153251) do
   end
 
   create_table "pitches", force: true do |t|
-    t.integer  "cohort_pitch_day_id"
+    t.integer  "pitch_day_id"
     t.string   "proposer"
     t.string   "name"
     t.datetime "created_at"
@@ -58,11 +58,11 @@ ActiveRecord::Schema.define(version: 20140923153251) do
   end
 
   create_table "voting_rounds", force: true do |t|
-    t.integer  "cohort_pitch_day_id"
+    t.integer  "pitch_day_id"
     t.integer  "round_number"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_open",             default: true, null: false
+    t.boolean  "is_open",      default: true, null: false
   end
 
 end

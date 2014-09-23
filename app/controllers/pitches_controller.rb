@@ -10,6 +10,6 @@ class PitchesController < ApplicationController
   end
 
   def pitch_params
-    params.require(:pitch).permit(:cohort_pitch_day_id, :proposer, :name, :description)
+    params.require(:pitch).permit(:pitch_day_id, :proposer, :name, :description)
   end
 end

@@ -1,7 +1,7 @@
 class CreateVotingRounds < ActiveRecord::Migration
   def change
     create_table :voting_rounds do |t|
-      t.references :cohort_pitch_day
+      t.references :pitch_day
       t.integer :round_number
       t.timestamps
     end

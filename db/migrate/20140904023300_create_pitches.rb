@@ -1,7 +1,7 @@
 class CreatePitches < ActiveRecord::Migration
   def change
     create_table :pitches do |t|
-      t.references :cohort_pitch_day
+      t.references :pitch_day
       t.string :proposer
       t.string :name
       t.timestamps

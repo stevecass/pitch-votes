@@ -1,19 +1,19 @@
 class DaysController < ApplicationController
   def index
-    @days = CohortPitchDay.all
+    @days = PitchDay.all
   end
 
   def show
-    @day = CohortPitchDay.find_by_id(params[:id])
+    @day = PitchDay.find_by_id(params[:id])
     @pitch=Pitch.new
   end
 
   def new
-    @day = CohortPitchDay.new
+    @day = PitchDay.new
   end
 
   def create
-    @day = CohortPitchDay.create(day_params)
+    @day = PitchDay.create(day_params)
     if @day.save
       redirect_to days_path, notice: 'New day saved'
     else
@@ -22,7 +22,7 @@ class DaysController < ApplicationController
   end
 
   def day_params
-    params.require(:cohort_pitch_day).permit(:cohort_name, :location, :pitch_date)
+    params.require(:pitch_day).permit(:cohort_name, :location, :pitch_date)
   end
 
 end

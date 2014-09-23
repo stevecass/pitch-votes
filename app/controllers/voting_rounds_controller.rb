@@ -1,9 +1,9 @@
 class VotingRoundsController < ApplicationController
   
   def index
-    day_id = params[:cohort_pitch_day_id]
-    @day = CohortPitchDay.find(day_id)
-    @rounds = VotingRound.where(cohort_pitch_day_id: day_id).order('id desc')
+    day_id = params[:pitch_day_id]
+    @day = PitchDay.find(day_id)
+    @rounds = VotingRound.where(pitch_day_id: day_id).order('id desc')
   end
 
   def show
@@ -17,12 +17,12 @@ class VotingRoundsController < ApplicationController
   end
 
   def new
-    @day = CohortPitchDay.find(params[:cohort_pitch_day_id])
+    @day = PitchDay.find(params[:pitch_day_id])
     @voting_round = VotingRound.new
   end
 
   def create
-    day_id = params[:cohort_pitch_day_id]
+    day_id = params[:pitch_day_id]
     pitch_ids = []
     params[:pitches].each do |k,v|
       pitch_ids.push k[1..-1]
