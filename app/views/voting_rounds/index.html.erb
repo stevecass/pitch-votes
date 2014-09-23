@@ -1,4 +1,20 @@
 <h1>Voting rounds for <%= @day.cohort_name %></h1>
-<% @rounds.each do |r| %>
-  
+<table>
+	<tr>
+		<th>Round number</th>
+		<th>Open</th>
+		<th>Action</th>
+	</tr>
+<% @rounds.each do |round| %>
+  <tr>
+  	<td><%= round.round_number %></td>
+  	<td><%= round.is_open %></td>
+  	<% if round.is_open %>
+  	  <td><%= link_to 'Cast a vote' %></td>
+  	<% else %>
+  	  <td><%= link_to 'View results' %></td>
+  	<% end %>
+  	
+  </tr>
 <% end %>
+</table>
