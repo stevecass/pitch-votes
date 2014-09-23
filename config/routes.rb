@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   resource :ballot_paper, path: '/vote', only: [:create, :new]
   resources :pitch_days, path: '/days', controller: :days do
-    resources :pitches, only: [:create]
+    resources :pitches, only: [:create, :edit, :update, :destroy]
     resources :voting_rounds, only: [:new, :index, :create, :show] do
     end
   end

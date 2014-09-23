@@ -2,4 +2,6 @@
     	  <td class="proposer"><%= pitch.proposer %></td>
     	  <td class="pitch_name"><%= pitch.name %></td>
     	  <td class="pitch_description"><%= pitch.description %></td>
+        <td class="pitch_actions"><%= link_to 'Edit', edit_pitch_day_pitch_path(day, pitch)%>  <%= link_to 'Delete', pitch_day_pitch_path(day, pitch), method: :delete%>
+	
     	</tr>

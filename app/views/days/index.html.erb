@@ -2,14 +2,14 @@
   <tr>
   	<th class="location">Location</th>
   	<th class="cohort_name">Cohort name</th>
-  	<th class="details_link">Details</th>
+  	<th class="details_link">Actions</th>
   </tr>
 
 <% @days.each do |day| %>
   <tr>
   	<td class="location"><%= day.location %></td>
   	<td class="cohort_name"><%= day.cohort_name %></td>
-  	<td class="details_link"><%= link_to 'Details', pitch_day_path(day) %></td>
+  	<td class="details_link"><%= link_to 'Details', pitch_day_path(day) %> <%= link_to 'Delete', pitch_day_path(day), method: :delete %> </td>
   </tr>
 <% end %>
 </table>

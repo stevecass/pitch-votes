@@ -9,7 +9,7 @@
 	</tr>
 
     <% @day.pitches.each do |pitch| %>
-      <%= render partial: 'pitches/pitch', locals: {pitch: pitch} %> 
+      <%= render partial: 'pitches/pitch', locals: {pitch: pitch, day: @day} %> 
     <% end %>
 </table>
 
