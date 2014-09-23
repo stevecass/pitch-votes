@@ -2,7 +2,7 @@ class PitchesController < ApplicationController
   def create
     pitch = Pitch.new(pitch_params)
     if pitch.save
-      render partial: 'pitch', locals: {pitch: pitch, day: pitch.pitch_day}
+      render partial: 'pitch', locals: {pitch: pitch, day: pitch.day}
     else
       render text: "Error", status: :bad_request
     end
@@ -12,13 +12,13 @@ class PitchesController < ApplicationController
   def destroy
     pitch = Pitch.find(params[:id])
     if pitch.destroy
-      redirect_to pitch_day_path(pitch.pitch_day), notice: 'Pitch deleted'
+      redirect_to day_path(pitch.day), notice: 'Pitch deleted'
     else
-      redirect_to pitch_day_path(pitch.pitch_day), alert: 'Failed to delete pitch'
+      redirect_to day_path(pitch.day), alert: 'Failed to delete pitch'
     end
   end
 
   def pitch_params
-    params.require(:pitch).permit(:pitch_day_id, :proposer, :name, :description)
+    params.require(:pitch).permit(:day_id, :proposer, :name, :description)
   end
 end
