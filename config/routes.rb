@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :days do
+  resources :cohort_pitch_days, path: '/days', controller: :days do
     resources :pitches, only: [:create]
     resources :voting_rounds, only: [:create, :show]
     resources :votes, only: [:create]
