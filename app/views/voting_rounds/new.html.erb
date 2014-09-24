@@ -2,17 +2,18 @@
 
 <%= form_for [@day, @voting_round] do |f| %>
 
-<table>
+<table data-id="round_candidates">
 	<tr>
 		<th>Proposer</th>
 		<th>Name</th>
-		<th>Include in round?</th>
+		<th>Include in round?<br> <a data-purpose="select-all" href="#">Select all</a>
+    <a data-purpose="clear-all" href="#">Clear all</a> </th>
 	</tr>
   <% @day.pitches.each do |p| %>
     <tr>
     	<td><%= p.proposer %></td>
     	<td><%= p.name %></td>
-    	<td><%= check_box_tag "pitches[p#{p.id}]"  %> </td>
+    	<td><%= check_box_tag "pitches[p#{p.id}]", 1, false, {class: 'pitch_cb'}  %> </td>
     </tr>
   <% end %>
  </table>

@@ -43,5 +43,15 @@ $(document).ready(function(){
 
   $('table#votes').tablesorter();
 
+  $('a[data-purpose="select-all"]').on('click', function(event){
+    event.preventDefault();
+    $('.pitch_cb').prop('checked', true);
+  })
+
+  $('a[data-purpose="clear-all"]').on('click', function(event){
+    event.preventDefault();
+    $('.pitch_cb').prop('checked', false);
+  })
+
 })
 
