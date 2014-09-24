@@ -40,5 +40,8 @@ $(document).ready(function(){
     $('form#the_vote_form').submit();
 
   })
+
+  $('table#votes').tablesorter();
+
 })
 
