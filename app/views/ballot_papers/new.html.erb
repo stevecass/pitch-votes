@@ -1,4 +1,4 @@
-
+<% if current_user %>
 <% if @rounds %>
    <ul>
      <% @rounds.each do |round| %>
@@ -9,4 +9,7 @@
 
 <% if @round %>
   <%= render partial: 'round', locals: { round: @round} %>
+<% end %>
+<% else %>
+Please log in
 <% end %>
