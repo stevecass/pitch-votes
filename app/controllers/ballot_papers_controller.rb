@@ -12,7 +12,9 @@ class BallotPapersController < ApplicationController
   end
 
   def create
-    #
+    cand_array = params[:votes].split(',')
+    
+
   end
 
   private 
@@ -23,8 +25,6 @@ class BallotPapersController < ApplicationController
     round_id
   end
 
-  def place_candidates
-  end
 
 
 end

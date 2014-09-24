@@ -4,3 +4,38 @@ table#pitches {
 	}
 }
 
+#candidate_selection_area {
+	margin-top:20px;
+
+    .candidates {
+      padding:10px;
+      background-color:white;
+      width:500px;
+      margin:20px 0;
+
+      h4 {
+        font-size:1.2em;
+      }
+
+      ul {
+        list-style:none;
+         margin: 0; 
+         padding: 0; 
+      }
+
+      .cand {
+      border : 1px solid black;
+      margin: 5px;
+      padding: 5px;
+      background-color: #CCC;
+
+        .proposer {
+        font-size:smaller;
+        font-style:italic;
+        }
+      }
+
+    }
+
+
+}

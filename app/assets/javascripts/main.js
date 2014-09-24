@@ -16,4 +16,30 @@ $(document).ready(function(){
   	});
   });
 
+
+  $('.sortable').sortable({
+
+    over: function(event, ui) { window.candidateSortableInside = 1; },
+    receive: function(event, ui) {window.candidateSortableInside = 1; },
+    out:  function(event, ui) {window.candidateSortableInside = 0; },
+    beforeStop: function(event, ui) {
+      if (window.candidateSortableInside == 0) {
+        ui.item.remove();
+      }
+    }
+  });
+
+  $('.sortable').disableSelection();
+
+
+  $('[data-purpose="cast-ballot"]').on('click', function() { 
+    var chosen = []
+    $("#candidate_list li").each(function(index, ele) {
+      chosen.push($(ele).attr('data-cand-id'));
+    })
+    $('input#votes').val(chosen.join(','));
+    $('form#the_vote_form').submit();
+
+  })
 })
+

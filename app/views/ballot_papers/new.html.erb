@@ -8,11 +8,5 @@
 <% end %>
 
 <% if @round %>
-  <div id="candidates">
-    <% @round.voting_round_candidates.each do |cand| %>
-        <div class="cand">
-         <%= cand.pitch.name %>
-        </div>
-    <% end %>
-  </div>
+  <%= render partial: 'round', locals: { round: @round} %>
 <% end %>
