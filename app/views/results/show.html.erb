@@ -1,0 +1,29 @@
+<h1>Results for round <%= @round.round_number %> of <%= @round.day.cohort_name %></h1>
+<table>
+	<tr>
+		<th>Pitch</th>
+		<th>Total points</th>
+	</tr>
+<% @scores.each do |score| %>
+  <tr>
+  	<td><%= score[0] %></td>
+  	<td><%= score[1] %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Votes</h2>
+<table>
+	<tr>
+		<th>Voter</th>
+		<th>Pitch</th>
+		<th>Rank</th>
+	</tr>
+	<% @votes.each do |vote| %>
+	  <tr>
+	  	<td><%= vote.user.name %></td>
+	  	<td><%= vote.candidate.pitch.name %></td>
+	  	<td><%= vote.rank %></td>
+	  </tr>
+	<% end %>
+</table>

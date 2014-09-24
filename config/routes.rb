@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#create', as: 'login'
   get '/signout' => 'sessions#destroy', as: 'signout'
+  get '/results/:round_id' => 'results#show', as: 'results'
   root 'days#index'
 
   
