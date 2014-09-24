@@ -3,6 +3,10 @@ class VotingRound < ActiveRecord::Base
   has_many :candidates
   has_many :votes
 
+  def self.closed
+    where(is_open: false)
+  end
+  
   def self.max_for_day day
     VotingRound.where(day: day).maximum("id")
   end

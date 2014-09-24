@@ -7,10 +7,11 @@ Rails.application.routes.draw do
     resources :voting_rounds, only: [:new, :index, :create, :show] do
     end
   end
+  resources :results, only: [:index, :show]
 
   get '/auth/:provider/callback' => 'sessions#create', as: 'login'
   get '/signout' => 'sessions#destroy', as: 'signout'
-  get '/results/:round_id' => 'results#show', as: 'results'
+
   root 'days#index'
 
   

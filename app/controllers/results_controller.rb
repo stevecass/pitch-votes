@@ -1,8 +1,11 @@
 class ResultsController < ApplicationController
-  before_action :staff_only
   
+  def index
+    @rounds = VotingRound.closed
+  end
+
   def show
-    @round  = VotingRound.find(params[:round_id])
+    @round  = VotingRound.find(params[:id])
     @scores = Hash.new
     @votes = Vote.joins(:candidate).joins(:voting_round).where('voting_rounds.id = ?', @round.id)
     populate_scores @votes

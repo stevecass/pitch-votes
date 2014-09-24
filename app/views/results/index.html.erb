@@ -1,0 +1,7 @@
+<div id="closed_rounds">
+	<ul>
+		<% @rounds.each do |round | %>
+		  <li><%= link_to "#{round.day.cohort_name} round #{round.round_number}" ,result_path(round.id) %></li>
+		<% end %>
+    </ul>
+</div>
