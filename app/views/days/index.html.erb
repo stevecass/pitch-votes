@@ -14,3 +14,6 @@
 <% end %>
 </table>
 
+<% if staff_logged_in %>
+  <%= link_to 'Add a day', new_day_path %>
+<% end %>

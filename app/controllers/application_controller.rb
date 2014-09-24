@@ -16,7 +16,7 @@ private
   end
 
   def staff_logged_in
-   return current_user && current_user.email && current_user.email.end_with?("dxevbootcamp.com")
+   return current_user && current_user.email && current_user.email.end_with?("devbootcamp.com")
   end
   
   helper_method :current_user, :staff_logged_in

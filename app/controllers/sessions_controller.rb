@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_staff_login
+  
   def create
     oa = env["omniauth.auth"]
     info = oa["info"]
