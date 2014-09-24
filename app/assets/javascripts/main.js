@@ -10,6 +10,8 @@ $(document).ready(function(){
   	}).done(function(data){
   		$('table#pitches').append(data);
   		$('form.new_pitch').trigger('reset');
+      window.scrollTo(0,document.body.scrollHeight);
+      $('#pitch_proposer').focus();
   	}).fail(function(data){
   		console.log(data)
 

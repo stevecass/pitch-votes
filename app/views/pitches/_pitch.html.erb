@@ -4,7 +4,8 @@
     	  <td class="pitch_description"><%= pitch.description %></td>
         <td class="pitch_actions">
         	<% if staff_logged_in %>
-          <%= link_to 'Edit', edit_day_pitch_path(day, pitch)%>  <%= link_to 'Delete', day_pitch_path(day, pitch), method: :delete%>
+          <%= link_to 'Edit', edit_day_pitch_path(day, pitch)%>
+          <%= link_to 'Delete', day_pitch_path(day, pitch), method: :delete, confirm:'Are you sure you want to delete' %>
           <% end %>
         </td>
 	
