@@ -8,8 +8,8 @@ $(document).ready(function(){
   		dataType: 'text',
   		data: $(event.target).serialize()
   	}).done(function(data){
-  		console.log(data)
   		$('table#pitches').append(data);
+  		$('form.new_pitch').trigger('reset');
   	}).fail(function(data){
   		console.log(data)
 
