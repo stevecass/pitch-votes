@@ -12,13 +12,20 @@ class BallotPapersController < ApplicationController
   end
 
   def create
-    Vote.delete_for_user_and_round(current_user, params[:round_id])
+    round = VotingRound.find(params[:round_id])
+    Vote.delete_for_user_and_round(current_user, round)
     cand_array = params[:votes].split(',')
     cand_array.each_with_index do |item, index|
       rank = 1 + index
-      Vote.create({candidate_id: item, rank: rank, user:current_user})
+      Vote.create({candidate_id: item, rank: rank, user:current_user, voting_round: round})
     end
-    redirect_to '/', notice: 'Thanks for voting.'
+    redirect_to action: :show , round_id: round
+  end
+
+  def show
+    @round = VotingRound.find(params[:round_id])
+    @votes = Vote.for_user_and_round(current_user, @round )
+
 
   end
 

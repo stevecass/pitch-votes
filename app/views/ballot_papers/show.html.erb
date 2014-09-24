@@ -1,0 +1,8 @@
+<h1>Your votes in <%= @round.day.cohort_name %>  round <%= @round.round_number %> </h1>
+
+<ol id="votes_cast">
+  <% @votes.each do |vote| %>
+    <li><%= vote.candidate.pitch.name %> (<%= vote.candidate.pitch.proposer %>)</li>
+
+  <% end %>
+</ol>
