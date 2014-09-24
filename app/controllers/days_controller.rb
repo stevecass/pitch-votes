@@ -1,4 +1,5 @@
 class DaysController < ApplicationController
+  skip_before_action :require_staff_login, only:[:index, :show]
   def index
     @days = Day.all
   end

@@ -1,13 +1,13 @@
 <h1>Results for round <%= @round.round_number %> of <%= @round.day.cohort_name %></h1>
-<table>
+<table id="scores">
 	<tr>
 		<th>Pitch</th>
-		<th>Total points</th>
+		<th class="score">Total points</th>
 	</tr>
 <% @scores.each do |score| %>
   <tr>
   	<td><%= score[0] %></td>
-  	<td><%= score[1] %></td>
+  	<td class="score"><%= score[1] %></td>
   </tr>
 <% end %>
 </table>

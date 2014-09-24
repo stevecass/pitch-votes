@@ -10,12 +10,14 @@
   	<td><%= round.round_number %></td>
   	<td><%= round.is_open %></td>
   	<% if round.is_open %>
-  	  <td><%= link_to 'Cast a vote', day_voting_round_path(@day, round) %></td>
+  	  <td><%= link_to 'Cast a vote', new_ballot_paper_path({round_id: round.id}) %></td>
   	<% else %>
-  	  <td><%= link_to 'View results', day_voting_round_path(@day, round) %></td>
+  	  <td><%= link_to 'View results', results_path(round) %></td>
   	<% end %>
   	
   </tr>
 <% end %>
 </table>
-<%= link_to 'Create a round', new_day_voting_round_path(@day) %>
+<% if staff_logged_in %>
+  <%= link_to 'Create a round', new_day_voting_round_path(@day) %>
+<% end %>

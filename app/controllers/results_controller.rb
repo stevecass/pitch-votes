@@ -1,4 +1,6 @@
 class ResultsController < ApplicationController
+  before_action :staff_only
+  
   def show
     @round  = VotingRound.find(params[:round_id])
     @scores = Hash.new

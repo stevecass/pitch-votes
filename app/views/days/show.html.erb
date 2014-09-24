@@ -16,9 +16,12 @@
 
 <%= link_to 'Voting rounds', day_voting_rounds_path(@day) %>
 
+<% if staff_logged_in %>
 <h3> Add a pitch</h3>
 <%= form_for [@day, @pitch] do |f| %>
+
   <%= f.hidden_field :day_id, value: @day.id %>
+
   <%= f.label :proposer %> 
   <%= f.text_field :proposer %>
 
@@ -30,4 +33,5 @@
 
   <%= f.submit %>
 
+<% end %>
 <% end %>

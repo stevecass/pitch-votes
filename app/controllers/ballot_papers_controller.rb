@@ -1,4 +1,6 @@
 class BallotPapersController < ApplicationController
+  skip_before_action :require_staff_login
+
   def new
     round_id = get_current_round
 

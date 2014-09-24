@@ -1,8 +1,17 @@
+
 table#pitches {
 	th.proposer, th.pitch_name, td.proposer, td.pitch_name {
 	   width:200px;
 	}
 }
+
+table#scores {
+  width: 50%;
+  .score {
+    text-align:right;
+    width:20%;
+  }
+} 
 
 #candidate_selection_area {
 	margin-top:20px;
