@@ -5,7 +5,7 @@ class BallotPapersController < ApplicationController
     round_id = get_current_round
 
     if (round_id)
-      @round = VotingRound.find(round_id)
+      @round = VotingRound.joins(:candidates => :pitch).find(round_id)
       
     else
       @rounds = VotingRound.open_rounds
