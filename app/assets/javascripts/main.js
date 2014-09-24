@@ -16,14 +16,13 @@ $(document).ready(function(){
   	});
   });
 
-
+  var removeIntended = false;
   $('.sortable').sortable({
-
-    over: function(event, ui) { window.candidateSortableInside = 1; },
-    receive: function(event, ui) {window.candidateSortableInside = 1; },
-    out:  function(event, ui) {window.candidateSortableInside = 0; },
+    
+    over: function(event, ui) { removalIntended = false; },
+    out:  function(event, ui) { removalIntended = true; },
     beforeStop: function(event, ui) {
-      if (window.candidateSortableInside == 0) {
+      if (removalIntended) {
         ui.item.remove();
       }
     }

@@ -1,6 +1,10 @@
 <div id="candidate_selection_area">
-  <h4>Drag the pitches into your preference order.</h4>
+	
+	<h1>Voting Round <%= round.round_number %> - <%= round.day.cohort_name %></h1>
+  <h4>Drag the pitches into your preferred order - favorite at the top.</h4>
 	If you don't want to vote for a pitch at all, drag it out of the box. Try to vote for at least eight pitches.
+	If you cast votes more than once in a round, your latest set of votes will count.
+
   <div class="candidates" id="candidates_available">
 
   	<ul id="candidate_list" class="sortable">
@@ -13,6 +17,9 @@
 
   <%= form_tag '/vote', {id: 'the_vote_form', class:'vote_form'} do %>
    <%= hidden_field_tag 'votes', '' %>
+   <%= hidden_field_tag 'round_id', round.id %>
+
   <% end %>
+
 
 </div>
