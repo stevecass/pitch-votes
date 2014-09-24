@@ -42,17 +42,17 @@ ActiveRecord::Schema.define(version: 20140923153251) do
     t.datetime "updated_at"
   end
 
-  create_table "voting_round_candidates", force: true do |t|
-    t.integer  "voting_round_id"
-    t.integer  "pitch_id"
+  create_table "votes", force: true do |t|
+    t.integer  "voting_round_candidate_id"
+    t.string   "voter"
+    t.integer  "rank"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "voting_round_votes", force: true do |t|
-    t.integer  "voting_round_candidate_id"
-    t.string   "voter"
-    t.integer  "rank"
+  create_table "voting_round_candidates", force: true do |t|
+    t.integer  "voting_round_id"
+    t.integer  "pitch_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
