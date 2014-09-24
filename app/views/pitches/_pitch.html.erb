@@ -1,0 +1,11 @@
+    	<tr>
+    	  <td class="proposer"><%= pitch.proposer %></td>
+    	  <td class="pitch_name"><%= pitch.name %></td>
+    	  <td class="pitch_description"><%= pitch.description %></td>
+        <td class="pitch_actions">
+        	<% if staff_logged_in %>
+          <%= link_to 'Edit', edit_day_pitch_path(day, pitch)%>  <%= link_to 'Delete', day_pitch_path(day, pitch), method: :delete%>
+          <% end %>
+        </td>
+	
+    	</tr>

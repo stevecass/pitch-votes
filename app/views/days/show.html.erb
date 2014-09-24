@@ -9,10 +9,29 @@
 	</tr>
 
     <% @day.pitches.each do |pitch| %>
-    	<tr>
-    	  <td class="proposer"><%= pitch.proposer %></td>
-    	  <td class="pitch_name"><%= pitch.name %></td>
-    	  <td class="pitch_description"><%= pitch.description %></td>
-    	</tr>
+      <%= render partial: 'pitches/pitch', locals: {pitch: pitch, day: @day} %> 
     <% end %>
 </table>
+
+
+<%= link_to 'Voting rounds', day_voting_rounds_path(@day) %>
+
+<% if staff_logged_in %>
+<h3> Add a pitch</h3>
+<%= form_for [@day, @pitch] do |f| %>
+
+  <%= f.hidden_field :day_id, value: @day.id %>
+
+  <%= f.label :proposer %> 
+  <%= f.text_field :proposer %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit %>
+
+<% end %>
+<% end %>

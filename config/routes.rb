@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
-  resources :days do
-    resources :voting_rounds
+  
+  resource :ballot_paper, path: '/vote', only: [:create, :new, :show]
+  resources :days, path: '/days', controller: :days do
+    resources :pitches, only: [:create, :edit, :update, :destroy]
+    resources :voting_rounds, only: [:new, :index, :create, :show] do
+    end
   end
-
-  resources :ballots, only: [:create, :show]
 
   get '/auth/:provider/callback' => 'sessions#create', as: 'login'
   get '/signout' => 'sessions#destroy', as: 'signout'
+  get '/results/:round_id' => 'results#show', as: 'results'
   root 'days#index'
 
   

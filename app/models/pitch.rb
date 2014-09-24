@@ -1,4 +1,4 @@
 class Pitch < ActiveRecord::Base
-  belongs_to :cohort_pitch_day
-  has_many :voting_round_candidates
+  belongs_to :day
+  has_many :candidates
 end

@@ -1,0 +1,22 @@
+<h1>Create a new pitch day</h1>
+<% if @day.errors.any? %>
+  
+  <ul>
+    <% @day.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+
+<% end %>
+<%= form_for @day, url: {action: :create } do |f| %>
+  <%= f.label :cohort_name %>
+  <%= f.text_field :cohort_name %>
+
+  <%= f.label :location %>
+  <%= f.select :location, locations: ['NYC', 'CHI', 'SF'] %>
+
+  <%= f.label :pitch_date %>
+  <%= f.date_field :pitch_date %>
+
+  <%= f.submit %>
+<% end %>

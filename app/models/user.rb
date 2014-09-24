@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :votes
 
   def self.from_auth(auth)
     where('id = ?', auth["id"]).first || create_user_from_auth(auth)

@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905200451) do
+ActiveRecord::Schema.define(version: 20140923153251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cohort_pitch_days", force: true do |t|
+  create_table "candidates", force: true do |t|
+    t.integer  "voting_round_id"
+    t.integer  "pitch_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "days", force: true do |t|
     t.string   "cohort_name"
     t.string   "location"
     t.date     "pitch_date"
@@ -25,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140905200451) do
   end
 
   create_table "pitches", force: true do |t|
-    t.integer  "cohort_pitch_day_id"
+    t.integer  "day_id"
     t.string   "proposer"
     t.string   "name"
     t.datetime "created_at"
@@ -42,26 +49,21 @@ ActiveRecord::Schema.define(version: 20140905200451) do
     t.datetime "updated_at"
   end
 
-  create_table "voting_round_candidates", force: true do |t|
+  create_table "votes", force: true do |t|
+    t.integer  "user_id"
     t.integer  "voting_round_id"
-    t.integer  "pitch_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "voting_round_votes", force: true do |t|
-    t.integer  "voting_round_candidate_id"
-    t.string   "voter"
+    t.integer  "candidate_id"
     t.integer  "rank"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "voting_rounds", force: true do |t|
-    t.integer  "cohort_pitch_day_id"
+    t.integer  "day_id"
     t.integer  "round_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_open",      default: true, null: false
   end
 
 end
