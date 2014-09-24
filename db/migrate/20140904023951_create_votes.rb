@@ -3,7 +3,7 @@ class CreateVotes < ActiveRecord::Migration
     create_table :votes do |t|
       t.references :user
       t.references :voting_round
-      t.references :voting_round_candidate
+      t.references :candidate
       t.integer :rank
       t.timestamps
     end

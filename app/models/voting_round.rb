@@ -1,6 +1,6 @@
 class VotingRound < ActiveRecord::Base
   belongs_to :day
-  has_many :voting_round_candidates
+  has_many :candidates
   has_many :votes
 
   def self.max_for_day day
@@ -18,7 +18,7 @@ class VotingRound < ActiveRecord::Base
     vr.round_number = 1 + current_max
     vr.save
     candidate_ids.each do |id|
-      vr.voting_round_candidates << VotingRoundCandidate.create({ pitch_id: id})
+      vr.candidates << Candidate.create({ pitch_id: id})
     end
     vr
   end

@@ -16,7 +16,7 @@ class BallotPapersController < ApplicationController
     cand_array = params[:votes].split(',')
     cand_array.each_with_index do |item, index|
       rank = 1 + index
-      Vote.create({voting_round_candidate_id: item, rank: rank, user:current_user})
+      Vote.create({candidate_id: item, rank: rank, user:current_user})
     end
     redirect_to '/', notice: 'Thanks for voting.'
 

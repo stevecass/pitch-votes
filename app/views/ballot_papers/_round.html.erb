@@ -8,7 +8,7 @@
   <div class="candidates" id="candidates_available">
 
   	<ul id="candidate_list" class="sortable">
-    <% round.voting_round_candidates.each do |cand| %>
+    <% round.candidates.each do |cand| %>
         <li data-cand-id="<%= cand.id %>" class="cand"><%= cand.pitch.name %> <span class="proposer">(<%= cand.pitch.proposer %>)</span> <%= cand.id %></li>
     <% end %>
     </ul>
