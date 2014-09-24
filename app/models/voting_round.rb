@@ -6,6 +6,10 @@ class VotingRound < ActiveRecord::Base
     VotingRound.where(day: day).maximum("id")
   end
 
+  def self.open_rounds
+    VotingRound.where(is_open: true)
+  end
+
   def self.create_with_candidates(day_id, candidate_ids)
     vr = VotingRound.new({ day_id: day_id })
     vr.round_number = 1 + VotingRound.max_for_day(day_id)

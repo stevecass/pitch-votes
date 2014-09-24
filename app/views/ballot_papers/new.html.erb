@@ -1,3 +1,18 @@
-new.html.erb
 
-<%= session[:round_id] %>
+<% if @rounds %>
+   <ul>
+     <% @rounds.each do |round| %>
+       <li><%= link_to  "#{round.day.cohort_name} (#{round.day.location}) round #{round.round_number}", new_ballot_paper_path(round_id: round.id) %></li>
+     <% end %>
+   </ul>
+<% end %>
+
+<% if @round %>
+  <div id="candidates">
+    <% @round.voting_round_candidates.each do |cand| %>
+        <div class="cand">
+         <%= cand.pitch.name %>
+        </div>
+    <% end %>
+  </div>
+<% end %>
