@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(version: 20140923153251) do
   end
 
   create_table "votes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "voting_round_id"
     t.integer  "voting_round_candidate_id"
-    t.string   "voter"
     t.integer  "rank"
     t.datetime "created_at"
     t.datetime "updated_at"

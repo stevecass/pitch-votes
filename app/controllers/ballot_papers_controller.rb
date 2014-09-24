@@ -12,8 +12,13 @@ class BallotPapersController < ApplicationController
   end
 
   def create
+    Vote.delete_for_user_and_round(current_user, params[:round_id])
     cand_array = params[:votes].split(',')
-    
+    cand_array.each_with_index do |item, index|
+      rank = 1 + index
+      Vote.create({voting_round_candidate_id: item, rank: rank, user:current_user})
+    end
+    redirect_to '/', notice: 'Thanks for voting.'
 
   end
 
