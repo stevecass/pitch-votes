@@ -1,7 +1,8 @@
 class VotingRound < ActiveRecord::Base
   belongs_to :day
-  has_many :candidates
-  has_many :votes
+  delegate :cohort_name, :location, :pitch_date, to: :day, allow_nil: true, prefix: false
+  has_many :candidates, :dependent => :destroy
+  has_many :votes, :dependent => :destroy
 
   def self.closed
     where(is_open: false)

@@ -1,4 +1,4 @@
-<h1>Results for round <%= @round.round_number %> of <%= @round.day.cohort_name %></h1>
+<h1>Results for round <%= @round.round_number %> of <%= @round.cohort_name %></h1>
 <table id="scores">
 	<tr>
 		<th>Pitch</th>
@@ -24,8 +24,8 @@
     <tbody>
 		<% @votes.each do |vote| %>
 		  <tr>
-		  	<td><%= vote.user.name %></td>
-		  	<td><%= vote.candidate.pitch.name %></td>
+		  	<td><%= vote.user_name %></td>
+		  	<td><%= vote.candidate_name %></td>
 		  	<td><%= vote.rank %></td>
 		  </tr>
 		<% end %>

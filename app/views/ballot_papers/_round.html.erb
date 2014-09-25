@@ -1,6 +1,6 @@
 <div id="candidate_selection_area">
 	
-	<h1>Voting Round <%= round.round_number %> - <%= round.day.cohort_name %></h1>
+	<h1>Voting Round <%= round.round_number %> - <%= round.cohort_name %></h1>
   <h4>Drag the pitches into your preferred order - favorite at the top.</h4>
   Your top ten votes count. You may also drag pitches out of the box if you wish. 
 	If you cast votes more than once in a round, your most recent set of votes will count.
@@ -9,7 +9,7 @@
 
   	<ul id="candidate_list" class="sortable">
     <% round.candidates.each do |cand| %>
-        <li data-cand-id="<%= cand.id %>" class="cand"><%= cand.pitch.name %> <span class="proposer">(<%= cand.pitch.proposer %>)</span> </li>
+        <li data-cand-id="<%= cand.id %>" class="cand"><%= cand.name %> <span class="proposer">(<%= cand.proposer %>)</span> </li>
     <% end %>
     </ul>
   </div>
