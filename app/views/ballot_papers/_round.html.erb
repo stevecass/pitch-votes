@@ -9,7 +9,7 @@
 
   	<ul id="candidate_list" class="sortable">
     <% round.candidates.each do |cand| %>
-        <li data-cand-id="<%= cand.id %>" class="cand"><%= cand.pitch.name %> <span class="proposer">(<%= cand.pitch.proposer %>)</span> </li>
+        <li data-cand-id="<%= cand.id %>" class="cand"><%= cand.pitch_name %> <span class="proposer">(<%= cand.pitch_proposer %>)</span> </li>
     <% end %>
     </ul>
   </div>

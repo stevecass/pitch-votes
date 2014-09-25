@@ -25,7 +25,7 @@
 		<% @votes.each do |vote| %>
 		  <tr>
 		  	<td><%= vote.user.name %></td>
-		  	<td><%= vote.candidate.pitch.name %></td>
+		  	<td><%= vote.candidate.pitch_name %></td>
 		  	<td><%= vote.rank %></td>
 		  </tr>
 		<% end %>

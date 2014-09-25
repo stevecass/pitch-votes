@@ -3,7 +3,7 @@
 <div class="vote_card">
 <ol id="votes_cast">
   <% @votes.each do |vote| %>
-    <li><%= vote.candidate.pitch.name %> (<%= vote.candidate.pitch.proposer %>)</li>
+    <li><%= vote.candidate.pitch_name %> (<%= vote.candidate.pitch_proposer %>)</li>
 
   <% end %>
 </ol>
