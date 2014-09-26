@@ -1,4 +1,16 @@
 class PitchesController < ApplicationController
+
+  def edit
+    @day = Day.find(params[:day_id])
+    @pitch = Pitch.find(params[:id])
+  end
+
+  def update
+    @pitch = Pitch.find(params[:id])
+    @pitch.update_attributes!(pitch_params)
+    redirect_to day_path(@pitch.day_id)
+  end
+
   def create
     pitch = Pitch.new(pitch_params)
     if pitch.save
