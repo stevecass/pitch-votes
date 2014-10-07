@@ -1,0 +1,16 @@
+<%= form_for [@day, @pitch] do |f| %>
+  <%= f.label :day %>
+  <%= f.select(:day_id, Day.all.collect {|u| [u.cohort_name, u.id]}) %>
+
+  <%= f.label :proposer %>
+  <%= f.text_field :proposer %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit %>
+
+<% end %>
