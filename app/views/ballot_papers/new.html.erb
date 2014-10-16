@@ -1,15 +1,19 @@
 <% if current_user %>
-<% if @rounds %>
-   <ul>
-     <% @rounds.each do |round| %>
-       <li><%= link_to  "#{round.cohort_name} (#{round.location}) round #{round.round_number}", new_ballot_paper_path(round_id: round.id) %></li>
-     <% end %>
-   </ul>
-<% end %>
+  <% if @rounds %>
+     <ul>
+       <% @rounds.each do |round| %>
+         <li><%= link_to  "#{round.cohort_name} (#{round.location}) round #{round.round_number}", new_ballot_paper_path(round_id: round.id) %></li>
+       <% end %>
+     </ul>
+  <% end %>
 
-<% if @round %>
-  <%= render partial: 'round', locals: { round: @round} %>
-<% end %>
+  <% if @round %>
+    <% if @round.is_open %>
+      <%= render partial: 'round', locals: { round: @round} %>
+    <% else %>
+      This round is closed <%= link_to 'Results', result_path(@round.id) %>
+    <% end %>
+  <% end %>
 <% else %>
-Please log in
+<h2>Please log in first</h2>
 <% end %>
